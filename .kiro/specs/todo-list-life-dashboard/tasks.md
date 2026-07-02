@@ -25,8 +25,8 @@ Implementasi aplikasi web produktivitas single-page berbasis Vanilla JS/HTML/CSS
     - Tambahkan `lang="id"` pada `<html>` dan `<meta charset="UTF-8">`, `<meta name="viewport">`
     - _Requirements: 10.1, 10.3_
 
-- [ ] 2. Implement Storage Module
-  - [-] 2.1 Tulis Storage module di `app.js`
+- [x] 2. Implement Storage Module
+  - [x] 2.1 Tulis Storage module di `app.js`
     - Implementasi `Dashboard.Storage.save(key, data)` — JSON.stringify + localStorage.setItem, lempar `StorageError` saat QuotaExceededError/SecurityError
     - Implementasi `Dashboard.Storage.load(key)` — JSON.parse + localStorage.getItem, kembalikan `null` jika data hilang atau corrupt (try-catch)
     - Implementasi `Dashboard.Storage.remove(key)` — localStorage.removeItem
@@ -34,13 +34,13 @@ Implementasi aplikasi web produktivitas single-page berbasis Vanilla JS/HTML/CSS
     - _Requirements: 8.1, 8.2, 8.3, 8.4, 9.2, 9.7_
 
 - [ ] 3. Implement GreetingWidget
-  - [~] 3.1 Tulis markup HTML dan struktur DOM untuk GreetingWidget di `index.html`
+  - [x] 3.1 Tulis markup HTML dan struktur DOM untuk GreetingWidget di `index.html`
     - Gunakan `<header>` sebagai wrapper GreetingWidget dengan `role="banner"`
     - Tambahkan `<h2 id="greeting-heading">` sebagai judul widget, dipakai oleh `aria-labelledby` pada `<section>`
     - Tambahkan elemen: `#greeting-text` (`<p>`), `#clock-display` (`<time>` dengan `datetime` diupdate tiap detik), `#date-display` (`<p>`)
     - Gunakan `aria-live="polite"` pada `#clock-display` agar screen reader mengumumkan perubahan waktu
     - _Requirements: 1.1, 1.2, 2.1, 2.2_
-  - [~] 3.2 Implementasi `Dashboard.GreetingWidget` di `app.js`
+  - [-] 3.2 Implementasi `Dashboard.GreetingWidget` di `app.js`
     - Implementasi `_formatTime(date)` — kembalikan string `HH:MM:SS` dengan zero-padding
     - Implementasi `_formatDate(date)` — kembalikan string "Nama Hari, D Bulan YYYY" dalam Bahasa Indonesia menggunakan array hari dan bulan
     - Implementasi `_getGreeting(hour)` — peta jam ke salah satu dari empat string sapaan sesuai Time_of_Day
@@ -49,14 +49,14 @@ Implementasi aplikasi web produktivitas single-page berbasis Vanilla JS/HTML/CSS
     - _Requirements: 1.1, 1.2, 1.3, 1.4, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6_
 
 - [ ] 4. Implement FocusTimer
-  - [~] 4.1 Tulis markup HTML dan struktur DOM untuk FocusTimer di `index.html`
+  - [x] 4.1 Tulis markup HTML dan struktur DOM untuk FocusTimer di `index.html`
     - Gunakan `<section aria-labelledby="timer-heading">` sebagai wrapper
     - Tambahkan `<h2 id="timer-heading">Focus Timer</h2>`
     - Gunakan `<output id="timer-display" aria-live="off" aria-atomic="true">` untuk tampilan MM:SS (diupdate via JS, `aria-live` diubah ke `"assertive"` hanya saat countdown selesai)
     - Tombol `#btn-start`, `#btn-stop`, `#btn-reset` menggunakan `<button type="button">` dengan `aria-label` deskriptif
     - Gunakan `role="status"` dan `aria-live="assertive"` pada `#timer-complete-msg`
     - _Requirements: 3.1, 3.7_
-  - [~] 4.2 Implementasi `Dashboard.FocusTimer` di `app.js`
+  - [-] 4.2 Implementasi `Dashboard.FocusTimer` di `app.js`
     - Definisikan state internal: `_remaining = 1500`, `_intervalId = null`, `_running = false`, `_startTime = null`, `_startRemaining = null`
     - Implementasi `_updateDisplay()` — format `_remaining` ke MM:SS (zero-padded), tulis ke `#timer-display`
     - Implementasi `_setButtonStates(running)` — enable/disable `#btn-start` dan `#btn-stop` sesuai state
@@ -69,7 +69,7 @@ Implementasi aplikasi web produktivitas single-page berbasis Vanilla JS/HTML/CSS
     - _Requirements: 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.10_
 
 - [ ] 5. Implement TodoList — Core dan Data Layer
-  - [~] 5.1 Tulis markup HTML dan struktur DOM untuk TodoList di `index.html`
+  - [x] 5.1 Tulis markup HTML dan struktur DOM untuk TodoList di `index.html`
     - Gunakan `<section aria-labelledby="todo-heading">` sebagai wrapper
     - Tambahkan `<h2 id="todo-heading">Todo List</h2>`
     - Gunakan `<form id="task-form" aria-label="Tambah tugas baru">` untuk input area; `<label for="task-input">` terhubung ke `<input type="text" id="task-input">`
@@ -77,7 +77,7 @@ Implementasi aplikasi web produktivitas single-page berbasis Vanilla JS/HTML/CSS
     - Gunakan `<ul id="task-list" aria-label="Daftar tugas">` — setiap task adalah `<li>`
     - Tambahkan `<p id="task-input-error" role="alert" aria-live="assertive">` untuk error message
     - _Requirements: 4.1, 4.2_
-  - [~] 5.2 Implementasi data layer dan validasi `Dashboard.TodoList` di `app.js`
+  - [-] 5.2 Implementasi data layer dan validasi `Dashboard.TodoList` di `app.js`
     - Definisikan `_tasks = []`
     - Implementasi `_validateTaskText(text, maxLen)` — kembalikan `{ valid, error }` untuk empty/whitespace/over-length
     - Implementasi `_loadTasks()` — panggil `Storage.load('dashboard_tasks')`, populate `_tasks`, handle null (empty array), sort by `createdAt` ascending
@@ -112,7 +112,7 @@ Implementasi aplikasi web produktivitas single-page berbasis Vanilla JS/HTML/CSS
   - Tanyakan kepada user jika ada pertanyaan sebelum melanjutkan.
 
 - [ ] 8. Implement QuickLinks
-  - [~] 8.1 Tulis markup HTML dan struktur DOM untuk QuickLinks di `index.html`
+  - [x] 8.1 Tulis markup HTML dan struktur DOM untuk QuickLinks di `index.html`
     - Gunakan `<section aria-labelledby="links-heading">` sebagai wrapper
     - Tambahkan `<h2 id="links-heading">Quick Links</h2>`
     - Gunakan `<form id="link-form" aria-label="Tambah quick link baru">` — setiap field punya `<label for>` terhubung ke input-nya
@@ -122,7 +122,7 @@ Implementasi aplikasi web produktivitas single-page berbasis Vanilla JS/HTML/CSS
     - Gunakan `<ul id="link-list" aria-label="Daftar quick links">` — setiap link adalah `<li>` berisi `<a>` dan tombol hapus
     - Error elements: `<p id="link-label-error" role="alert">`, `<p id="link-url-error" role="alert">`, `<p id="link-limit-msg" aria-live="polite">`
     - _Requirements: 9.1, 9.2, 9.3_
-  - [~] 8.2 Implementasi data layer dan validasi `Dashboard.QuickLinks` di `app.js`
+  - [ ] 8.2 Implementasi data layer dan validasi `Dashboard.QuickLinks` di `app.js`
     - Definisikan `_links = []`
     - Implementasi `_validateLink(label, url)` — cek label 1–100 karakter, parse URL dengan `new URL(url)`, cek `protocol === 'http:' || 'https:'`, kembalikan `{ valid, errors: { label?, url? } }`
     - Implementasi `_loadLinks()` — panggil `Storage.load('dashboard_links')`, populate `_links`, handle null, sort by `createdAt` ascending
