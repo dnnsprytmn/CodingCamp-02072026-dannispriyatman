@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo List Life Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- GreetingWidget — landmark header halaman -->
+  <header role="banner">
+    <section aria-labelledby="greeting-heading">
+      <h2 id="greeting-heading">Selamat Datang</h2>
+      <p id="greeting-text"></p>
+      <time id="clock-display" datetime="" aria-live="polite"></time>
+      <p id="date-display"></p>
+    </section>
+  </header>
+
+  <main>
+
+    <!-- FocusTimer Widget -->
+    <section aria-labelledby="timer-heading">
+      <h2 id="timer-heading">Focus Timer</h2>
+      <output id="timer-display" aria-live="off" aria-atomic="true">25:00</output>
+      <div role="group" aria-label="Kontrol timer">
+        <button type="button" id="btn-start" aria-label="Mulai timer">Mulai</button>
+        <button type="button" id="btn-stop" aria-label="Hentikan timer" disabled>Hentikan</button>
+        <button type="button" id="btn-reset" aria-label="Reset timer ke 25 menit">Reset</button>
+      </div>
+      <p id="timer-complete-msg" role="status" aria-live="assertive" hidden>
+        Sesi fokus selesai! Istirahat sejenak.
+      </p>
+    </section>
+
+    <!-- TodoList Widget -->
+    <section aria-labelledby="todo-heading">
+      <h2 id="todo-heading">Todo List</h2>
+      <form id="task-form" aria-label="Tambah tugas baru">
+        <label for="task-input">Deskripsi tugas</label>
+        <input
+          type="text"
+          id="task-input"
+          name="task-input"
+          placeholder="Masukkan tugas baru..."
+          autocomplete="off"
+          maxlength="500"
+        />
+        <button type="submit" id="btn-add-task">Tambah</button>
+      </form>
+      <p id="task-input-error" role="alert" aria-live="assertive"></p>
+      <ul id="task-list" aria-label="Daftar tugas"></ul>
+    </section>
+
+    <!-- QuickLinks Widget -->
+    <section aria-labelledby="links-heading">
+      <h2 id="links-heading">Quick Links</h2>
+      <form id="link-form" aria-label="Tambah quick link baru">
+        <div>
+          <label for="link-label-input">Label</label>
+          <input
+            type="text"
+            id="link-label-input"
+            name="link-label"
+            placeholder="Nama tautan..."
+            autocomplete="off"
+            maxlength="100"
+          />
+          <p id="link-label-error" role="alert" aria-live="assertive"></p>
+        </div>
+        <div>
+          <label for="link-url-input">URL</label>
+          <input
+            type="url"
+            id="link-url-input"
+            name="link-url"
+            placeholder="https://..."
+            autocomplete="off"
+            maxlength="2048"
+          />
+          <p id="link-url-error" role="alert" aria-live="assertive"></p>
+        </div>
+        <button type="submit" id="btn-add-link">Tambah Tautan</button>
+      </form>
+      <p id="link-limit-msg" aria-live="polite"></p>
+      <ul id="link-list" aria-label="Daftar quick links"></ul>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
