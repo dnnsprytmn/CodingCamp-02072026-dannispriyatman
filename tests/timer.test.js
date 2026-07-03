@@ -5,7 +5,7 @@
  */
 import { describe, test, expect, beforeEach, afterEach, vi } from "vitest";
 import * as fc from "fast-check";
-import { Dashboard } from "../app.js";
+import { Dashboard } from "../js/app.js";
 
 // ---------------------------------------------------------------------------
 // DOM helper — create and attach all required elements before each test

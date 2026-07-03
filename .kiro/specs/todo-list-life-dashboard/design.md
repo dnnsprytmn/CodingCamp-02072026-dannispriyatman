@@ -180,7 +180,8 @@ TodoList = {
   init()                          // Load dari storage, render, bind events
   _loadTasks()                    // Baca dari Storage.load('dashboard_tasks')
   _saveTasks()                    // Tulis ke Storage.save('dashboard_tasks', tasks)
-  _render()                       // Render ulang seluruh daftar Task dari _tasks[]
+  _render()                       // Render ulang seluruh daftar Task dari _tasks[] sesuai _sortMode
+  _getSortedTasks()               // Kembalikan _tasks[] yang sudah diurutkan sesuai _sortMode
   _renderTask(task)               // Kembalikan DOM element untuk satu Task
   addTask(text)                   // Validasi, buat Task baru, simpan, render
   editTask(id, newText)           // Validasi, update Task, simpan, render
@@ -190,6 +191,19 @@ TodoList = {
   _showError(element, message)    // Tampilkan pesan error di dekat element
 }
 ```
+
+**State Internal tambahan:**
+```javascript
+_sortMode: "createdAt" // "createdAt" | "createdAtDesc" | "status" | "alpha"
+```
+
+**Mode Sort:**
+| Value | Urutan |
+|---|---|
+| `createdAt` | `createdAt` ascending (default, terlama dulu) |
+| `createdAtDesc` | `createdAt` descending (terbaru dulu) |
+| `status` | incomplete dulu, completed di bawah |
+| `alpha` | A–Z berdasarkan `text` (locale `id`) |
 
 **Operasi Edit Inline:**
 Saat pengguna klik tombol edit atau double-click teks task:

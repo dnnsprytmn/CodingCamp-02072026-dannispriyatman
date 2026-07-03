@@ -3,7 +3,7 @@
  * Validates: Requirements 8.1, 8.2, 8.3, 8.4, 9.7
  */
 import { describe, test, expect, beforeEach, vi } from "vitest";
-import { Dashboard, StorageError } from "../app.js";
+import { Dashboard, StorageError } from "../js/app.js";
 
 const { Storage } = Dashboard;
 

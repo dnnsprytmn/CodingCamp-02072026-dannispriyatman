@@ -80,7 +80,9 @@ Todo List Life Dashboard adalah sebuah website dashboard produktivitas pribadi b
 2. WHEN pengguna memasukkan teks tugas yang tidak kosong (maksimal 500 karakter) dan menekan tombol tambah atau menekan tombol Enter, THE Todo_List SHALL menambahkan Task baru dengan status "belum selesai" ke dalam daftar dan menyimpannya ke Local_Storage.
 3. WHEN Task baru berhasil ditambahkan, THE Todo_List SHALL mengosongkan input field secara otomatis.
 4. IF pengguna menekan tombol tambah atau menekan Enter saat input field kosong atau hanya berisi spasi, THEN THE Todo_List SHALL tidak menambahkan Task dan SHALL menampilkan pesan kesalahan yang menginformasikan alasan penolakan.
-5. THE Todo_List SHALL menampilkan semua Task yang tersimpan di Local_Storage saat halaman dimuat ulang, diurutkan dari Task paling lama ke paling baru sesuai waktu penambahan.
+5. THE Todo_List SHALL menampilkan semua Task yang tersimpan di Local_Storage saat halaman dimuat ulang, diurutkan sesuai mode urutan yang aktif.
+6. THE Todo_List SHALL menyediakan kontrol pemilihan mode urutan (sort) dengan pilihan: terlama (`createdAt` ascending), terbaru (`createdAt` descending), status aktif dulu (incomplete sebelum completed), dan alfabet A–Z.
+7. WHEN pengguna mengubah mode urutan, THE Todo_List SHALL langsung merender ulang daftar sesuai mode urutan baru tanpa mengubah data Task yang tersimpan.
 
 ---
 

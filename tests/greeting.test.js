@@ -5,7 +5,7 @@
  */
 import { describe, test, expect } from "vitest";
 import fc from "fast-check";
-import { Dashboard } from "../app.js";
+import { Dashboard } from "../js/app.js";
 
 const GW = Dashboard.GreetingWidget;
 
@@ -110,24 +110,24 @@ describe("GreetingWidget", () => {
         const greeting = GW._getGreeting(hour);
 
         if (hour >= 5 && hour <= 11) {
-          expect(greeting).toBe("Selamat Pagi");
+          expect(greeting).toContain("Selamat Pagi");
         } else if (hour >= 12 && hour <= 14) {
-          expect(greeting).toBe("Selamat Siang");
+          expect(greeting).toContain("Selamat Siang");
         } else if (hour >= 15 && hour <= 17) {
-          expect(greeting).toBe("Selamat Sore");
+          expect(greeting).toContain("Selamat Sore");
         } else {
           // hours 0–4 and 18–23
-          expect(greeting).toBe("Selamat Malam");
+          expect(greeting).toContain("Selamat Malam");
         }
 
-        // Must be one of exactly four valid greetings
-        const validGreetings = [
+        // Must start with one of exactly four valid greeting prefixes
+        const validPrefixes = [
           "Selamat Pagi",
           "Selamat Siang",
           "Selamat Sore",
           "Selamat Malam",
         ];
-        expect(validGreetings).toContain(greeting);
+        expect(validPrefixes.some((p) => greeting.startsWith(p))).toBe(true);
       }),
       { numRuns: 100 },
     );

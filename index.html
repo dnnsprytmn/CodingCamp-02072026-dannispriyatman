@@ -8,13 +8,15 @@
 </head>
 <body>
 
+  <!-- Theme toggle -->
+  <button type="button" id="btn-theme-toggle" aria-label="Toggle dark/light mode">🌙 Dark</button>
+
   <!-- GreetingWidget — landmark header halaman -->
   <header role="banner">
     <section aria-labelledby="greeting-heading">
-      <h2 id="greeting-heading">Selamat Datang</h2>
-      <p id="greeting-text"></p>
       <time id="clock-display" datetime="" aria-live="polite"></time>
       <p id="date-display"></p>
+      <p id="greeting-text"></p>
     </section>
   </header>
 
@@ -49,6 +51,15 @@
         />
         <button type="submit" id="btn-add-task">Tambah</button>
       </form>
+      <div id="task-sort-bar" aria-label="Urutan daftar tugas">
+        <label for="task-sort-select">Urutkan:</label>
+        <select id="task-sort-select" aria-label="Pilih urutan tugas">
+          <option value="createdAt">Terlama</option>
+          <option value="createdAtDesc">Terbaru</option>
+          <option value="status">Status (aktif dulu)</option>
+          <option value="alpha">A–Z</option>
+        </select>
+      </div>
       <p id="task-input-error" role="alert" aria-live="assertive"></p>
       <ul id="task-list" aria-label="Daftar tugas"></ul>
     </section>
@@ -89,6 +100,6 @@
 
   </main>
 
-  <script src="js/app.js"></script>
+  <script src="js/app.js" type="module"></script>
 </body>
 </html>
